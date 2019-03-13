@@ -24,21 +24,24 @@ makeButtons();
 var queryURL='';
 $(".topic").on("click", function() {
   var searchTerm = $(this).attr("data-topic").replace(" ","+")
-  var queryURL =
+  queryURL =
     "http://api.giphy.com/v1/gifs/search?q=" +
     searchTerm +
     "&api_key=dc6zaTOxFJmzC";
-  console.log(queryURL)
+    getResponse(queryURL)
 });
-  
-$.ajax({
-  url: queryURL,
-  method: "GET"
-}).then(function(response) {
-  
-  console.log(response)
+
+ function getResponse(queryURL){ 
+ $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function(response) {
+    
+    console.log(response)
+    console.log(response.data[0].url)
 
 });
+}
 /*
    var gif_list=[];
    console.log(response)
