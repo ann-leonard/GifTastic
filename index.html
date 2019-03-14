@@ -7,6 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link
@@ -15,18 +16,23 @@
       integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./assets/styles.css">
 
-    <title>Hello, world!</title>
+    <title>Giftastic!</title>
   </head>
   <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row topRow">
           <div class="col-8 ml-3 mt-5">
             <div id="buttons-view"></div>
-        </div>  
+          </div> 
+          <div class="col-2 mr-3 mt-5">
+           <input id="topicInput" class="form-control form-control-lg mb-2" type="text" placeholder="Your topic">
+           <button id="submitBtn" type="button" class="btn btn-info mb-3">Submit</button>
+          </div> 
         </div>
-        <div class="row">
-          <div class="col-8">
+        <div class="row btm">
+          <div class="col-12">
             <div class="gifContainer"></div>
           </div>
         </div>
