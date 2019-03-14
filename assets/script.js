@@ -23,6 +23,7 @@ makeButtons();
 
 var queryURL='';
 $(".topic").on("click", function() {
+  $(".gifContainer").empty()
   var searchTerm = $(this).attr("data-topic").replace(" ","+")
   queryURL =
     "http://api.giphy.com/v1/gifs/search?q=" +
@@ -37,12 +38,6 @@ $(".topic").on("click", function() {
     method: "GET"
   }).then(function(response) {
     
-    console.log(response)
-    console.log(response.data[0].url)
-
-});
-}
-/*
    var gif_list=[];
    console.log(response)
    for (i = 0; i<10;i++){
@@ -51,9 +46,29 @@ $(".topic").on("click", function() {
              response.data[i].images.fixed_height_still.url
            }>`
          )
+      var gifStill = response.data[i].images.fixed_height_still.url
+      var gifAnimate = response.data[i].images.fixed_height.url
+      gif.attr("data-still",gifStill)
+      gif.attr("data-animate",gifAnimate)
            gif_list.push(gif)
-           $(".container-fluid").append(gif)
+           $(".gifContainer").append(gif)
            
+     
+  
+     
+    }  
+          $(".gif").on("click",function(){
+            var state = $(this).attr("data-state");
+            if(state === "still"){
+              var animatedSrc = $(this).attr("data-animate")
+            $(this).attr("src", animatedSrc)
+            $(this).attr("data-state","animate")
+          }
+          else{
+            var stillSrc = $(this).attr("data-still")
+            $(this).attr("src", stillSrc)
+            $(this).attr("data-state","still")
+          }
+          })  
 
-       }
-*/
+})}
