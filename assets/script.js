@@ -71,7 +71,7 @@ $(document.body).on("click", ".topic", function() {
           $(".gifContainer").append(gif)
     } 
 
-    $(".").on("click",function(){
+    $(".gif").on("click",function(){
     var state = $(this).attr("data-state");
       if(state === "still"){
         var animatedSrc = $(this).attr("data-animate")
