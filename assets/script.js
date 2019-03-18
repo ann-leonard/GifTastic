@@ -21,6 +21,7 @@ $(document).keyup(function(event) {
   if (event.key == "Enter") {
       submit()
   }
+  
 })
 $("#submitBtn").on("click", submit())
 
@@ -55,20 +56,20 @@ $(document.body).on("click", ".topic", function() {
    for (i = 0; i<10;i++){
      
       var rating = response.data[i].rating
-      var domRating= `<span class="badge badge-pill badge-info">${rating}</span>`
+      var domRating= `<p class="badge badge-pill badge-info">${rating}</p>`
       var gifStill = response.data[i].images.fixed_height_still.url
       var gifAnimate = response.data[i].images.fixed_height.url
       var gif = $(
-        `<img class="gif mb-4 ml-4 mr-4" data-state= "still" src=${
-          response.data[i].images.fixed_height_still.url
-        }>`
-        + domRating 
+      `<img class="gif mb-4 ml-4 mr-4" data-state= "still" src=${
+        response.data[i].images.fixed_height_still.url
+      }>`
+      + domRating 
       )
       gif.attr("data-still",gifStill)
       gif.attr("data-animate",gifAnimate)
            gif_list.push(gif)
-           $(".gifContainer").append(gif)
           $(".gifContainer").append(gif)
+          
     } 
 
     $(".gif").on("click",function(){
