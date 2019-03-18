@@ -40,7 +40,7 @@ $(document.body).on("click", ".topic", function() {
   $(".gifContainer").empty()
   var searchTerm = $(this).attr("data-topic").replace(" ","+")
   queryURL =
-    "http://api.giphy.com/v1/gifs/search?q=" +
+    "https://api.giphy.com/v1/gifs/search?q=" +
     searchTerm +
     "&api_key=dc6zaTOxFJmzC";
     getResponse(queryURL)
@@ -69,7 +69,6 @@ $(document.body).on("click", ".topic", function() {
       gif.attr("data-animate",gifAnimate)
            gif_list.push(gif)
           $(".gifContainer").append(gif)
-          
     } 
 
     $(".gif").on("click",function(){
